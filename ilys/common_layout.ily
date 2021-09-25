@@ -10,6 +10,10 @@
 
 \pointAndClickOff   % disable point and click
 
+#(define* (my-bar-number-function . all-parameters)
+    (let ((standard-barnumber
+           (apply robust-bar-number-function all-parameters)))
+      #{ \markup \concat { #standard-barnumber "\"" } #} ))
 
 %{ \paper {
     evenFooterMarkup = ##f
@@ -98,6 +102,12 @@
 
     \override Flag.stencil = #modern-straight-flag
     \override BarNumber.break-visibility = ##(#t #t #t)
+    %{ \override barNumberFormatter = #my-bar-number-function %}
+    \override BarNumber.stencil =
+     #(lambda (grob)
+       (let ((text (ly:grob-property grob 'text)))
+        (grob-interpret-markup grob
+         #{ \markup \concat { #text "\"" } #})))
     \override BarNumber.self-alignment-X = #CENTER
     \override BarNumber.outside-staff-priority = ##f
     \override BarNumber.font-family = #'sans
