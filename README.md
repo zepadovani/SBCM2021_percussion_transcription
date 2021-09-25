@@ -10,6 +10,6 @@ This data (in a csv 'dadosParaNotacao_REVISADO.csv') is used here to generate a 
 Quantization with 32ths is used here only to show the approximate position of the attacks. Dynamics are not yet transcribed and a more performer-friendly score is not yet generated.
 
 paper authors:
-José Henrique Padovani
-Júlio Guatimosim
-Carlos Guatimosim
+- José Henrique Padovani
+- Júlio Guatimosim
+- Carlos Guatimosim
